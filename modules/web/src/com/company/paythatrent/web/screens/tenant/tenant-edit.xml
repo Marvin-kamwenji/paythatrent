@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://tenantEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.paythatrent.web.screens.tenant">
+    <data>
+        <instance id="tenantDc"
+                  class="com.company.paythatrent.entity.Tenant">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="tenantDc">
+                <column width="350px">
+                    <textField id="firstNameField" property="firstName"/>
+                    <textField id="middleNameField" property="middleName"/>
+                    <textField id="lastNameField" property="lastName"/>
+                    <textField id="identificationNumberField" property="identificationNumber"/>
+                    <textField id="passportNumberField" property="passportNumber"/>
+                    <textField id="tenantStatusField" property="tenantStatus"/>
+                    <textField id="nationalityField" property="nationality"/>
+                    <dateField id="dateOfBirthField" property="dateOfBirth"/>
+                    <textField id="addressField" property="address"/>
+                    <textField id="mobileNumberField" property="mobileNumber"/>
+                    <textField id="emailField" property="email"/>
+                    <textField id="currentSalaryField" property="currentSalary"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

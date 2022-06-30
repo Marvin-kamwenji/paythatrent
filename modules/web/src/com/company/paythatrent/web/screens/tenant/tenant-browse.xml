@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://tenantBrowse.caption"
+        focusComponent="tenantsTable"
+        messagesPack="com.company.paythatrent.web.screens.tenant">
+    <data readOnly="true">
+        <collection id="tenantsDc"
+                    class="com.company.paythatrent.entity.Tenant">
+            <view extends="_local"/>
+            <loader id="tenantsDl">
+                <query>
+                    <![CDATA[select e from paythatrent_Tenant e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tenantsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tenantsTable"
+                dataLoader="tenantsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tenantsTable"
+                    width="100%"
+                    dataContainer="tenantsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="firstName"/>
+                <column id="middleName"/>
+                <column id="lastName"/>
+                <column id="identificationNumber"/>
+                <column id="passportNumber"/>
+                <column id="tenantStatus"/>
+                <column id="nationality"/>
+                <column id="dateOfBirth"/>
+                <column id="address"/>
+                <column id="mobileNumber"/>
+                <column id="email"/>
+                <column id="currentSalary"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="tenantsTable.create"/>
+                <button id="editBtn" action="tenantsTable.edit"/>
+                <button id="removeBtn" action="tenantsTable.remove"/>
+                <button id="refreshBtn" action="tenantsTable.refresh"/>
+                <button id="excelBtn" action="tenantsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

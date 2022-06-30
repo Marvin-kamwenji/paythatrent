@@ -1,0 +1,5 @@
+@import "hover-ext";
+
+@mixin com_company_paythatrent {
+  @include com_company_paythatrent-hover-ext;
+}

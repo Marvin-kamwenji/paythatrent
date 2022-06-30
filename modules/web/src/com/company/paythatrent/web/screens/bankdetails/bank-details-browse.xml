@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://bankDetailsBrowse.caption"
+        focusComponent="bankDetailsesTable"
+        messagesPack="com.company.paythatrent.web.screens.bankdetails">
+    <data readOnly="true">
+        <collection id="bankDetailsesDc"
+                    class="com.company.paythatrent.entity.employermanagement.BankDetails">
+            <view extends="_local"/>
+            <loader id="bankDetailsesDl">
+                <query>
+                    <![CDATA[select e from paythatrent_BankDetails e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="bankDetailsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="bankDetailsesTable"
+                dataLoader="bankDetailsesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="bankDetailsesTable"
+                    width="100%"
+                    dataContainer="bankDetailsesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="bankId"/>
+                <column id="bankName"/>
+                <column id="branch"/>
+                <column id="accountNumber"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="bankDetailsesTable.create"/>
+                <button id="editBtn" action="bankDetailsesTable.edit"/>
+                <button id="removeBtn" action="bankDetailsesTable.remove"/>
+                <button id="refreshBtn" action="bankDetailsesTable.refresh"/>
+                <button id="excelBtn" action="bankDetailsesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

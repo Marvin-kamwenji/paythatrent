@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://bankDetailsEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.paythatrent.web.screens.bankdetails">
+    <data>
+        <instance id="bankDetailsDc"
+                  class="com.company.paythatrent.entity.employermanagement.BankDetails">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="bankDetailsDc">
+            <column width="350px">
+                <textField id="bankIdField" property="bankId"/>
+                <textField id="bankNameField" property="bankName"/>
+                <textField id="branchField" property="branch"/>
+                <textField id="accountNumberField" property="accountNumber"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

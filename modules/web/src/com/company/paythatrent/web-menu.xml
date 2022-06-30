@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="Dashboard" caption="mainMsg://menu_config.Dashboard" icon="icons/set-small.png"/>
+    <menu id="Master Data" caption="mainMsg://menu_config.Master Data" icon="font-icon:DATABASE"
+          insertAfter="dashboard"/>
+    <menu id="Tenants" caption="mainMsg://menu_config.Tenant Management" icon="font-icon:HOME"
+          insertAfter="Master Data">
+        <item screen="paythatrent_Tenant.browse" caption="mainMsg://menu_config.paythatrent_Tenant.browse"/>
+    </menu>
+    <menu id="Landlords" caption="mainMsg://menu_config.Landlords" insertAfter="Tenants" icon="icons/change-pass.png">
+        <item screen="paythatrent_LandLord.browse" caption="mainMsg://menu_config.paythatrent_LandLord.browse"/>
+    </menu>
+    <menu id="Properties" caption="mainMsg://menu_config.Properties" insertAfter="Landlords"
+          icon="icons/change-pass-at-logon.png"/>
+    <menu id="Payments" caption="mainMsg://menu_config.Payments" insertAfter="Properties" icon="font-icon:WPFORMS">
+        <item screen="paythatrent_BankDetails.browse" caption="mainMsg://menu_config.paythatrent_BankDetails.browse"/>
+    </menu>
+    <menu id="Employers" caption="mainMsg://menu_config.Employers" insertAfter="Payments" icon="font-icon:USER">
+        <item screen="paythatrent_Employer.browse" caption="mainMsg://menu_config.paythatrent_Employer.browse"/>
+    </menu>
+    <menu id="Reports" caption="mainMsg://menu_config.Reports" insertBefore="administration" icon="LINE_CHART"/>
+</menu-config>
